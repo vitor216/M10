@@ -54,6 +54,7 @@ form.addEventListener('submit', function(e){
     const telefone2 = document.getElementById('tel-conjuge');
     const cepDoFuncionario = document.getElementById('cep');
     const mensagemSucesso1 = ('Funcionario : '+ nomefuncionario.value + ' cadastrado com sucesso: ');
+    const formulario = document.getElementById('form-cadastro')
 
     formEvalido = validaNome(nomefuncionario.value)
     if(formEvalido){
@@ -82,32 +83,32 @@ form.addEventListener('submit', function(e){
     }
 })
 
-var arr = [];
+var nomefuncionario = [];
 function addItem(){
     if (localStorage.meuArr){             
-    arr = JSON.parse(localStorage.getItem('meuArr')); 
+    nomefuncionario = JSON.parse(localStorage.getItem('meuArr')); 
 }
 
-let novoItem = document.getElementById("v").value;
-    arr.push(novoItem);
-    document.getElementById("v").value = "";
-    localStorage.meuArr = JSON.stringify(arr);
+let novoItem = document.getElementById("nome").value;
+    nomefuncionario.push(novoItem);
+    document.getElementById("nome").value = "";
+    localStorage.meuArr = JSON.stringify(nomefuncionario);
 }
 
 function showItems(){
     let resultDIV = document.getElementById('d');
     resultDIV.innerHTML = "";
     if (localStorage.meuArr){             
-    arr = JSON.parse(localStorage.getItem('meuArr')); 
+    nomefuncionario = JSON.parse(localStorage.getItem('meuArr')); 
 }
 
-for(var i in arr){
+for(var i in nomefuncionario){
 let p = document.createElement("p");
-    p.innerHTML = arr[i];
+    p.innerHTML = nomefuncionario[i];
     resultDIV.append(p);
 }} 
 
 function clearItems(){
-    arr = [];
-    localStorage.meuArr = JSON.stringify(arr);   
+    nomefuncionario = [];
+    localStorage.meuArr = JSON.stringify(nomefuncionario);   
 }
